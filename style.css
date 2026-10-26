@@ -1,0 +1,183 @@
+* { box-sizing: border-box; }
+
+:root {
+  --pink: #e98ba9;
+  --deep: #6d4053;
+  --cream: #fff9f3;
+  --soft: #fff0f5;
+}
+
+body {
+  margin: 0;
+  min-height: 100vh;
+  display: grid;
+  place-items: center;
+  padding: 24px;
+  font-family: "DM Sans", sans-serif;
+  color: var(--deep);
+  background:
+    radial-gradient(circle at 15% 20%, #ffdce8 0 10%, transparent 28%),
+    radial-gradient(circle at 85% 80%, #ffe7c8 0 8%, transparent 25%),
+    linear-gradient(135deg, #fff7f8, #fff5ea);
+  overflow-x: hidden;
+}
+
+.card {
+  position: relative;
+  width: min(92vw, 620px);
+  padding: 28px 24px 22px;
+  text-align: center;
+  background: rgba(255,255,255,.82);
+  border: 1px solid rgba(255,255,255,.9);
+  border-radius: 34px;
+  box-shadow: 0 24px 70px rgba(112, 63, 82, .18);
+  backdrop-filter: blur(12px);
+  animation: appear .9s ease both;
+}
+
+.badge {
+  display: inline-block;
+  padding: 8px 14px;
+  border-radius: 999px;
+  background: var(--soft);
+  color: #b25c7c;
+  font-size: 12px;
+  font-weight: 700;
+  letter-spacing: .04em;
+  margin-bottom: 18px;
+}
+
+.photo-wrap {
+  width: min(100%, 520px);
+  margin: auto;
+  padding: 7px;
+  border-radius: 25px;
+  background: white;
+  box-shadow: 0 12px 30px rgba(100, 55, 75, .15);
+  transform: rotate(-1deg);
+}
+
+.photo-wrap img {
+  display: block;
+  width: 100%;
+  aspect-ratio: 4 / 3;
+  object-fit: cover;
+  object-position: center;
+  border-radius: 20px;
+}
+
+.tiny {
+  margin: 28px 0 9px;
+  font-size: 10px;
+  letter-spacing: .18em;
+  font-weight: 700;
+  color: #b78394;
+}
+
+h1 {
+  margin: 0;
+  font-size: clamp(34px, 8vw, 58px);
+  line-height: 1.02;
+  font-weight: 700;
+}
+
+h1 span {
+  font-family: "Pacifico", cursive;
+  color: var(--pink);
+  font-weight: 400;
+}
+
+.divider {
+  margin: 18px 0;
+  color: #e6a2b8;
+  letter-spacing: 8px;
+}
+
+.message {
+  max-width: 510px;
+  margin: 0 auto;
+  font-size: 16px;
+  line-height: 1.8;
+  color: #765765;
+}
+
+button {
+  margin-top: 24px;
+  border: 0;
+  padding: 13px 21px;
+  border-radius: 999px;
+  background: var(--pink);
+  color: white;
+  font: inherit;
+  font-weight: 700;
+  cursor: pointer;
+  box-shadow: 0 9px 20px rgba(233,139,169,.3);
+  transition: transform .2s ease, box-shadow .2s ease;
+}
+
+button:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 12px 25px rgba(233,139,169,.4);
+}
+
+.surprise {
+  margin-top: 20px;
+  padding: 18px;
+  border-radius: 22px;
+  background: #fff5f8;
+  animation: pop .45s ease both;
+}
+
+.hidden { display: none; }
+
+.cake {
+  font-size: 42px;
+  margin-bottom: 8px;
+}
+
+.surprise p {
+  margin: 0 0 8px;
+  line-height: 1.6;
+}
+
+.footer {
+  margin: 25px 0 0;
+  font-size: 12px;
+  color: #ad8a98;
+}
+
+.hearts::before,
+.hearts::after {
+  content: "♡  ✦  ♡  ✧  ♡";
+  position: fixed;
+  color: rgba(233,139,169,.35);
+  font-size: 26px;
+  letter-spacing: 18px;
+  pointer-events: none;
+  animation: float 7s linear infinite;
+}
+
+.hearts::before { top: 10%; left: 5%; }
+.hearts::after { bottom: 8%; right: 3%; animation-delay: -3s; }
+
+@keyframes appear {
+  from { opacity: 0; transform: translateY(22px) scale(.98); }
+  to { opacity: 1; transform: translateY(0) scale(1); }
+}
+
+@keyframes pop {
+  from { opacity: 0; transform: scale(.94); }
+  to { opacity: 1; transform: scale(1); }
+}
+
+@keyframes float {
+  0% { transform: translateY(20px); opacity: 0; }
+  15%, 80% { opacity: 1; }
+  100% { transform: translateY(-25px); opacity: 0; }
+}
+
+@media (max-width: 480px) {
+  body { padding: 12px; }
+  .card { padding: 20px 16px 18px; border-radius: 27px; }
+  .message { font-size: 14px; line-height: 1.7; }
+}
